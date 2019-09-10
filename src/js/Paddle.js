@@ -1,17 +1,19 @@
+import config from './config.js'
+let {width, height, color, move} = config.paddle
 
 export default class Ball {
-  constructor (canvas, ctx) {
+  constructor (canvas, ctx, initWidth = width, initHeight = height, initColor = color, x = move.x, y = move.y) {
     this.ctx = ctx
     this.canvas = canvas
-    this.width = 75
-    this.height = 10
+    this.width = initWidth
+    this.height = initHeight
     this.x = (this.canvas.width - this.width) / 2
     this.y = this.canvas.height - 30
-    this.color = '#0095DD'
+    this.color = initColor
 
     this.move = {
-      x: 7,
-      y: 0,
+      x: x,
+      y: y,
       left: false,
       right: false
     }
@@ -37,5 +39,13 @@ export default class Ball {
       return true
     }
     return false
+  }
+  moveToLeft (value) {
+    this.move.left = !!value
+    return this
+  }
+  moveToRight (value) {
+    this.move.right = !!value
+    return this
   }
 }

@@ -1,15 +1,17 @@
+import config from './config.js'
+let {color, radius, move} = config.ball
 
 export default class Ball {
-  constructor (canvas, ctx) {
+  constructor (canvas, ctx, initColor = color, initRadius = radius, x = move.x, y = move.y) {
     this.ctx = ctx
     this.canvas = canvas
-    this.color = '#0095DD'
-    this.radius = 10
+    this.color = initColor
+    this.radius = initRadius
     this.x = this.canvas.width / 2
     this.y = this.canvas.height - 30
     this.move = {
-      x: 2,
-      y: -2
+      x: x,
+      y: y
     }
   }
 
@@ -45,5 +47,15 @@ export default class Ball {
       return true
     }
     return false
+  }
+
+  changeDirectionY () {
+    this.move.y = -this.move.y
+    return this
+  }
+
+  changeDirectionX () {
+    this.move.x = -this.move.x
+    return this
   }
 }

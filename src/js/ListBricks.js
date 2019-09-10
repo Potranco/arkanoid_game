@@ -25,6 +25,10 @@ export default class ListBricks {
     return this
   }
 
+  countBrick () {
+    return this.bricks.length
+  }
+
   draw () {
     for (let i = 0; i < this.rows; i++) {
       for (let t = 0; t < this.columns; t++) {

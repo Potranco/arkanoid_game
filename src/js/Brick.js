@@ -1,14 +1,14 @@
 import config from './config.js'
 export default class Brick {
   constructor (x, y, ctx) {
-    let { width, height, padding, offSetTop, offSetLeft } = config.bricks
+    let { width, height, padding, offSetTop, offSetLeft, color } = config.bricks
     this.ctx = ctx
     this.width = width
     this.height = height
     this.padding = padding
     this.offSetTop = offSetTop
     this.offSetLeft = offSetLeft
-    this.color = '#0095DD'
+    this.color = color
     this.x = x
     this.y = y
     this.display = true
